@@ -1,0 +1,193 @@
+@font-face {
+    font-family: 'Rodin Pro';
+    src: url('/src/main.otf');
+}
+
+* {
+    user-select: none;
+    font-family: 'Rodin Pro', sans-serif;
+    color: #fff;
+}
+
+.full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.abs {
+    position: absolute;
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+#fixedBg {
+    background: #202020;
+    z-index: -1;
+}
+
+.playerName {
+    font-size: 16px;
+}
+
+#playerRight {
+    margin-left: 20px;
+}
+
+.lp-label {
+    margin: 0 8px 0 16px;
+    font-size: 12px;
+}
+
+#playerOneLP, #playerTwoLP {
+    font-size: 25px;
+}
+
+#playerTwoLP {
+    margin-right: 12px;
+}
+
+.player {
+    padding: 6px;
+    width: 35%;
+}
+
+.you {
+    background: linear-gradient(90deg, #006eff31, transparent);
+}
+
+.enemy {
+    flex-direction: row-reverse;
+    background: linear-gradient(-90deg, #ff2b2b23, transparent);
+}
+
+.enemy #playerRight {
+    margin-left: 0;
+    margin-right: 20px;
+    flex-direction: row-reverse;
+}
+
+#topBar {
+    width: 100%;
+    box-shadow: 0 2.5px #fff;
+    z-index: 20;
+}
+
+#playerImg {
+    border-radius: 12px;
+    width: 65px;
+    height: 65px;
+}
+
+#gameCanvas {
+    top: 8%;
+    left: 0;
+    width: 100vw;
+    height: 92vh;
+}
+
+#leftBar, #rightBar {
+    height: 100%;
+    background: #00000061;
+    width: 5%;
+    justify-content: center;
+}
+
+#rightBar {
+    left: unset;
+    right: 0;
+}
+
+.cardPile {
+    border-radius: 4px;
+    background: #0005;
+    margin-bottom: 12px;
+    justify-content: center;
+    padding: 12px;
+}
+
+#iconContainer {
+    font-size: 35px;
+    color: #fff5;
+}
+
+.separator {
+    width: 2px;
+    height: 24px;
+    margin: 0 8px;
+    background: #ffffff1f;
+}
+
+.infoItem {
+    padding: 8px;
+}
+
+#timer, #gamePhase {
+    font-size: 22px;
+}
+
+#playerHand {
+    left: 6em;
+    bottom: 0.5em;
+    padding: 8px;
+    background: #00000061;
+}
+
+#hover {
+    margin-right: 12px;
+    font-size: 2rem;
+    padding: 12px;
+}
+
+#card:not(:last-of-type) {
+    margin-right: 12px;
+}
+
+#card {
+    width: 6.5em;
+    height: 10em;
+    border-radius: 4px;
+    flex-direction: column-reverse;
+    background: #202020;
+}
+
+#cardName {
+    font-size: 0.5rem;
+    padding: 8px;
+    width: 85%;
+    border-radius: 0 0 4px 4px;
+}
+
+#cardImg {
+    width: 120%;
+    position: relative;
+    left: -10px;
+}
+
+#cardImgHolder {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+}

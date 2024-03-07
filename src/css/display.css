@@ -1,0 +1,109 @@
+.card {
+    background: #fff1;
+    padding: 12px;
+    width: 30vw;
+    margin-top: 12px;
+}
+
+.monsterCard.normal {
+    box-shadow: 0 5px #f0c956;
+}
+
+.monsterCard.effect {
+    box-shadow: 0 5px #b06f20;
+}
+
+.monsterCard.token {
+    box-shadow: 0 5px #858177;
+}
+
+.monsterCard.ritual {
+    box-shadow: 0 5px #265e8c;
+}
+
+.monsterCard.fusion {
+    box-shadow: 0 5px #803e9e;
+}
+
+.monsterCard.synchro {
+    box-shadow: 0 5px #dbdbdb;
+}
+
+.monsterCard.xyz {
+    box-shadow: 0 5px #000;
+}
+
+.monsterCard.pendulum {
+    box-shadow: 0 5px #56766c;
+}
+
+.monsterCard.link {
+    box-shadow: 0 5px #346eeb;
+}
+#monsterName {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#levelDisplay {
+    width: 30px;
+    height: 30px;
+    background: #8f1a1a;
+    font-weight: bold;
+    margin: 4px;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.monsterSub {
+    margin-right: 12px;
+    padding: 0 12px;
+    background: #00000052;
+}
+
+#monsterSub {
+    margin-top: 12px;
+}
+
+.monsterDesc {
+    padding: 8px;
+    background: #0005;
+    margin: 8px;
+    margin-left: 0;
+}
+
+#statDisplay {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stat {
+    padding: 0 12px;
+    font-size: 18px;
+    background: #0005;
+    margin-right: 12px;
+}
+
+.none {
+    display: none;
+}
+
+.ra {
+    box-shadow: 0 5px #c59422 !important
+}
+
+.obelisk {
+    box-shadow: 0 5px #0058cc !important
+}
+
+.slifer {
+    box-shadow: 0 5px #cc1b1b !important
+}

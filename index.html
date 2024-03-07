@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Yu-Gi-Oh! </title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <script src="/src/js/index.js" defer type="module"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,100,1,200" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+</head>
+<body>
+    <div id="fixedBg" class="full"></div>
+    <div id="topBar" class="top flex space-between">
+        <div id="playerOne" class="you player flex"> 
+            <img src="./src/img/c.png" id="playerImg">
+            <div id="playerRight" class="flex">
+                <div id="playerOneName" class="playerName"> [WCS Slifer] aston. </div>
+                <div class="playerLP flex">
+                    <div class="lp-label"> LP </div>
+                    <div id="playerOneLP"> 8000 </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameInfo" class="flex">
+            <div id="timer" class="infoItem"> 300 </div>
+            <div class="separator"> </div>
+            <div id="gamePhase" class="infoItem"> Standby Phase </div>
+            <div class="separator"> </div>
+            <div id="openChat" class="infoItem material-icons"> chat </div>
+        </div>
+        <div id="playerTwo" class="enemy player flex"> 
+            <img src="./src/img/b.png" id="playerImg">
+            <div id="playerRight" class="flex">
+                <div id="playerTwoName" class="playerName"> [WCS Obelisk] Rakkshas </div>
+                <div class="playerLP flex">
+                    <div class="lp-label"> LP </div>
+                    <div id="playerTwoLP"> 8000 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gameCanvas" class="abs">
+        <div id="leftBar" class="top flex">
+            <div id="leftBarTop">
+                <div id="deck" class="cardPile flex"> 
+                    <div id="iconContainer" class="material-symbols-outlined"> playing_cards </div>
+                </div>
+                <div id="ex-deck" class="cardPile flex">
+                    <div id="iconContainer" class="material-icons"> auto_awesome </div>
+                </div>
+                <div id="graveyard" class="cardPile flex">
+                    <div id="iconContainer" class="material-icons-outlined"> delete </div>
+                </div>
+                <div id="banished" class="cardPile flex">
+                    <div id="iconContainer" class="material-icons-outlined"> clear </div>
+                </div>
+            </div>
+        </div>
+        <div id="rightBar" class="top flex">
+            <div id="rightBarTop">
+                <div id="deck" class="cardPile flex"> 
+                    <div id="iconContainer" class="material-symbols-outlined"> playing_cards </div>
+                </div>
+                <div id="ex-deck" class="cardPile flex">
+                    <div id="iconContainer" class="material-icons"> auto_awesome </div>
+                </div>
+                <div id="graveyard" class="cardPile flex">
+                    <div id="iconContainer" class="material-icons-outlined"> delete </div>
+                </div>
+                <div id="banished" class="cardPile flex">
+                    <div id="iconContainer" class="material-icons-outlined"> clear </div>
+                </div>
+            </div>
+        </div>
+        <div id="playerHand" class="abs flex">
+            <div id="hover" class="material-icons"> view_carousel </div>
+        </div>
+    </div>
+</body>
+</html> 
