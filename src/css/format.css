@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Rodin Pro';
+    src: url('/src/main.otf');
+}
+
+* {
+    user-select: none;
+    font-family: 'Rodin Pro', sans-serif;
+    color: #fff;
+}
+
+.full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.abs {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed
+}
+
+.relative {
+    position: relative
+}
+
+.top {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+}
+
+.space-between {
+    justify-content: space-between;
+}

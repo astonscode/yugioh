@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Point Animation</title>
+<style>
+    .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#lifePoints {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff0000; /* Red color for life points */
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div id="lifePoints">8000</div>
+</div>
+
+<script defer>
+function animateLifePoints(targetValue) {
+  const animationSpeed = 50; // Animation speed in milliseconds
+  let currentValue = parseInt(document.getElementById('lifePoints').innerText);
+
+  // Determine the direction of change (increment or decrement)
+  let direction = currentValue < targetValue ? 1 : -1;
+
+  // Perform animation until the target value is reached
+  function animationStep() {
+    let stepSize = Math.abs(targetValue - currentValue) > 100 ? Math.floor(Math.abs(targetValue - currentValue) / 10) : 1;
+    currentValue += stepSize * direction;
+
+    // Ensure that we don't overshoot the target value
+    if ((direction === 1 && currentValue > targetValue) || (direction === -1 && currentValue < targetValue)) {
+      currentValue = targetValue;
+    }
+
+    document.getElementById('lifePoints').innerText = currentValue;
+
+    // If we haven't reached the target value, continue the animation
+    if (currentValue !== targetValue) {
+      setTimeout(animationStep, animationSpeed);
+    }
+  }
+
+  // Start the animation
+  animationStep();
+}
+
+// Example usage:
+animateLifePoints(4000); // Example decrement
+// animateLifePoints(9000); // Example increment
+
+</script>
+</body>
+</html>

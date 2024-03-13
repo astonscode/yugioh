@@ -1,46 +1,21 @@
-@font-face {
-    font-family: 'Rodin Pro';
-    src: url('/src/main.otf');
+#cards::-webkit-scrollbar {
+    height: 2.5px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+#cards::-webkit-scrollbar-track {
+    background: #f1f1f12b;
 }
-
-* {
-    user-select: none;
-    font-family: 'Rodin Pro', sans-serif;
-    color: #fff;
+   
+#cards::-webkit-scrollbar-thumb {
+    background: #ffffff4a;
+    transition: .3s;
+    cursor: pointer;
 }
-
-.full {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-}
-
-.abs {
-    position: absolute;
-}
-
-.top {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.space-between {
-    justify-content: space-between;
+  
+#cards::-webkit-scrollbar-thumb:hover {
+    background: #ffffffc1; 
 }
 
 #fixedBg {
@@ -120,6 +95,18 @@
     right: 0;
 }
 
+.cardPile.high {
+    box-shadow: inset 0 0 0 2.5px #29bb4e;
+}
+
+.cardPile.mid {
+    box-shadow: inset 0 0 0 2.5px #e4bd3b;
+}
+
+.cardPile.low {
+    box-shadow: inset 0 0 0 2.5px #ff4848;
+}
+
 .cardPile {
     border-radius: 4px;
     background: #0005;
@@ -150,15 +137,27 @@
 
 #playerHand {
     left: 6em;
-    bottom: 0.5em;
-    padding: 8px;
-    background: #00000061;
+    bottom: 1em;
+    width: 6%;
+    height: 8%;
+    transition: .3s;
+    align-items: flex-end;
+    padding: 0;
 }
 
 #hover {
-    margin-right: 12px;
-    font-size: 2rem;
     padding: 12px;
+    background: #0005;
+    transition: .3s;
+    box-shadow: 0 0 0 2.5px white;
+}
+
+#hoverIcon {
+    font-size: 2rem;
+}
+
+#handCount {
+    margin-left: 12px;
 }
 
 #card:not(:last-of-type) {
@@ -167,10 +166,12 @@
 
 #card {
     width: 6.5em;
+    min-width: 6.5em;
     height: 10em;
     border-radius: 4px;
     flex-direction: column-reverse;
     background: #202020;
+    transition: .3s;
 }
 
 #cardName {
@@ -182,12 +183,61 @@
 
 #cardImg {
     width: 120%;
-    position: relative;
     left: -10px;
+    position: relative;
 }
 
 #cardImgHolder {
-    position: relative;
     overflow: hidden;
     border-radius: 4px 4px 0 0;
+}
+
+#cards {
+    overflow: auto;
+    opacity: 0;
+    transition: .3s;
+}
+
+#playerHand:hover {
+    width: fit-content;
+    background: #00000061;
+    padding: 8px;
+    height: fit-content;
+}
+
+#playerHand:hover #cards {
+    padding: 8px;
+    opacity: 1;
+}
+
+
+#playerHand:hover #hover {
+    margin: 8px;
+}
+
+#playmat {
+    display: none;
+    background: #ffffff0d;
+    width: 90vw;
+    height: 92vh;
+    left: 5.25em;
+}
+
+.zone {
+    width: 100px;
+    height: 250px;
+    background: black;
+}
+
+#deck-value {
+    position: absolute;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: .3s;
+    cursor: pointer;
+    text-shadow: 0 0 5px black;
+}
+
+.cardPile:hover #deck-value {
+    opacity: 1;
 }

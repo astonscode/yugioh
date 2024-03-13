@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Yu-Gi-Oh! </title>
+    <link rel="stylesheet" href="/src/css/format.css">
     <link rel="stylesheet" href="/src/css/main.css">
-    <script src="/src/js/index.js" defer type="module"></script>
+    <link rel="stylesheet" href="/src/css/cards.css">
+    <script src="/src/js/index.js" defer></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
@@ -18,7 +20,7 @@
         <div id="playerOne" class="you player flex"> 
             <img src="./src/img/c.png" id="playerImg">
             <div id="playerRight" class="flex">
-                <div id="playerOneName" class="playerName"> [WCS Slifer] aston. </div>
+                <div id="playerOneName" class="playerName"> aston. </div>
                 <div class="playerLP flex">
                     <div class="lp-label"> LP </div>
                     <div id="playerOneLP"> 8000 </div>
@@ -35,7 +37,7 @@
         <div id="playerTwo" class="enemy player flex"> 
             <img src="./src/img/b.png" id="playerImg">
             <div id="playerRight" class="flex">
-                <div id="playerTwoName" class="playerName"> [WCS Obelisk] Rakkshas </div>
+                <div id="playerTwoName" class="playerName"> Rakkshas </div>
                 <div class="playerLP flex">
                     <div class="lp-label"> LP </div>
                     <div id="playerTwoLP"> 8000 </div>
@@ -44,19 +46,44 @@
         </div>
     </div>
     <div id="gameCanvas" class="abs">
+        <div id="playmat" class="abs">
+            <div id="gridContainer" class="grid">
+                <div id="spellZones" class="flex">
+                    <div class="spellZone zone"></div>
+                    <div class="spellZone zone"></div>
+                    <div class="spellZone zone"></div>
+                    <div class="spellZone zone"></div>
+                    <div class="spellZone zone"></div>
+                </div>
+                <div id="monsterZones" class="flex">
+                    <div class="monsterZone zone"></div>
+                    <div class="monsterZone zone"></div>
+                    <div class="monsterZone zone"></div>
+                    <div class="monsterZone zone"></div>
+                    <div class="monsterZone zone"></div>
+                </div>
+                <div id="exZone" class="flex">
+                    <div class="exZone zone"></div>
+                </div>
+            </div>
+        </div>
         <div id="leftBar" class="top flex">
             <div id="leftBarTop">
                 <div id="deck" class="cardPile flex"> 
                     <div id="iconContainer" class="material-symbols-outlined"> playing_cards </div>
+                    <div id="deck-value"></div>
                 </div>
                 <div id="ex-deck" class="cardPile flex">
                     <div id="iconContainer" class="material-icons"> auto_awesome </div>
+                    <div id="deck-value"></div>
                 </div>
                 <div id="graveyard" class="cardPile flex">
                     <div id="iconContainer" class="material-icons-outlined"> delete </div>
+                    <div id="deck-value"></div>
                 </div>
                 <div id="banished" class="cardPile flex">
                     <div id="iconContainer" class="material-icons-outlined"> clear </div>
+                    <div id="deck-value"></div>
                 </div>
             </div>
         </div>
@@ -77,8 +104,15 @@
             </div>
         </div>
         <div id="playerHand" class="abs flex">
-            <div id="hover" class="material-icons"> view_carousel </div>
+            <div id="hover" class="flex"> 
+                <div id="hoverIcon" class="material-symbols-outlined"> view_carousel </div> 
+                <div id="handCount"> </div>
+            </div>
+            <div id="cards" class="flex"></div>
         </div>
     </div>
 </body>
+<script defer>
+    
+</script>
 </html> 

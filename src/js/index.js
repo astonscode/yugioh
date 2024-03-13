@@ -1,5 +1,3 @@
-import { cardDatabase } from "./database/database"
-
 const linkArray = [{
     path: "Card.js", 
     isModule: false,
@@ -16,6 +14,9 @@ const linkArray = [{
     path: "games.js", 
     isModule: false,
 }, {
+    path: "Game.js", 
+    isModule: false,
+},{
     path: "actions.js", 
     isModule: false,
 }, {
@@ -25,14 +26,14 @@ const linkArray = [{
     path: "dev.js", 
     isModule: false,
 }, {
-    path: "database/database.js", 
-    isModule: true,
-}, {
     path: "database/players.js", 
     isModule: false,
 }, {
-    path: "scraper.js", 
-    isModule: true,
+    path: "checking.js", 
+    isModule: false,
+}, {
+    path: "fetch.js", 
+    isModule: false,
 }]
 
 function generate(link, isModule) {
@@ -46,72 +47,93 @@ function generate(link, isModule) {
     }
 
     document.head.appendChild(x)
-    return x 
+    return x
 }
 
-const cards = [0, 12, 13, 14, 6, 9, 15]
-
-function createCardInHand(id) {
-    let hand = document.getElementById("playerHand")
-    let x = document.createElement("div")
-    x.id = "card"
-    x.classList.add("flex-column")
-
-    const detectColor = () => {
-        if (cardDatabase[id].type == 0) { // Normal
+function detectColor(card) {
+    let x = card.frameType || card.id
+    switch (x) {
+        case "normal":
             return "#f0c956"
-        } else if (cardDatabase[id].type == 1) { // Effect
+        case "effect":
             return "#b06f20"
-        } else if (cardDatabase[id].type == 2) { // Token
+        case "token":
             return "#858177"
-        } else if (cardDatabase[id].type == 3) { // Ritual
+        case "ritual":
             return "#265e8c"
-        } else if (cardDatabase[id].type == 4) { // Fusion
+        case "fusion":
             return "#803e9e"
-        } else if (cardDatabase[id].type == 5) { // Synchro
+        case "synchro":
             return "#dbdbdb"
-        } else if (cardDatabase[id].type == 6) { // XYZ
-            return "#000"
-        } else if (cardDatabase[id].type == 7) { // Pendulum
+        case "xyz":
+            return "#000000"
+        case "pendulum":
             return "#56766c"
-        } else if (cardDatabase[id].type == 8) { // Link
+        case "link":
             return "#346eeb"
-        } else if (cardDatabase[id].type == 100) { // Slifer
-            return "#cc1b1b"
-        } else if (cardDatabase[id].type == 101) { // Obelisk
+        case "spell":
+            return "#3c9f91"
+        case "trap":
+            return "#9f3c93"
+        case 10000000:
             return "#0058cc"
-        } else if (cardDatabase[id].type == 102) { // Ra
+        case 10000010:
             return "#c59422"
-        }
-
-        x.style.borderBottom = `5px solid ${detectColor()}`
-        let y = document.createElement("div")
-        y.id = "cardName"
-        y.innerHTML = `[${cardDatabase[id].level}] ${cardDatabase[id].name}`
-        let z = document.createElement("div")
-        z.id = "cardImgHolder"
-        let img = document.createElement("img")
-        img.src = cardDatabase[id].src
-        img.id = "cardImg"
-
-        z.append(img)
-        x.append(y, z)
-        hand.append(x)
+        case 10000020:
+            return "#cc1b1b"
     }
 }
 
+async function cardAsker(name, artwork) {
+    let hand = document.getElementById("cards")
+
+    const card = await fetchCard(name)
+    let x = document.createElement("div")
+    x.id = "card"
+    x.classList.add("flex-column")
+    x.style.borderBottom = `5px solid ${detectColor(card)}`
+    let a = uuid(8)
+    x.setAttribute("name", a)
+
+    let y = document.createElement("div")
+    y.id = "cardName"
+    
+    if (card.level != undefined) {
+        y.innerHTML = `[${card.level}] ${card.name}`
+    } else if (card.level == undefined && card.linkval != undefined) {
+        y.innerHTML = `<span style="display: inline;color: #346eeb"> [${card.linkval}] </span> ${card.name}`
+    } else {
+        y.innerHTML = card.name
+    }
+
+    let img = document.createElement("img")
+    img.id = "cardImg"
+
+    if (artwork != undefined) {
+        img.src = card.card_images[artwork].image_url_cropped
+    } else {
+        img.src = card.card_images[0].image_url_cropped
+    }
+
+    let z = document.createElement("div")
+    z.id = "cardImgHolder"
+
+    z.append(img)
+    x.append(y, z)
+    hand.append(x)
+
+    console.log(a, card.name)
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{ 
-    // for (var i = 0; i < linkArray.length; i++) {
-    //   generate(linkArray[i].path, linkArray[i].isModule)
-    // }
+    for (let i = 0; i < linkArray.length; i++) {
+       generate(linkArray[i].path, linkArray[i].isModule)
+    }
 
-    generate("database/database.js", true)
-
-    console.log(cardDatabase)
-
-    setTimeout(()=>{
-        for (var i = 0; i < cards.length; i++) {
-            createCardInHand(cards[i])
-        }
-    }, 500)
+    setTimeout(async ()=>{
+        users[0].active.deck = users[0].decks[0].deck
+        shuffle(0)
+        draw(0, 5)
+    }, 1000)
 })
+

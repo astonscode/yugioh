@@ -1,4 +1,4 @@
-function rollRandom(min, max) {
+function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
@@ -6,9 +6,9 @@ function jankenpon() {
     loop = true
 
     while (loop == true) {
-        x = prompt("ROCK PAPER SCISSORS !!!")
+        x = prompt("Choose one. (Rock, Paper, Scissors)")
         
-        y = rollRandom(1, 3)
+        y = randomRandom(1, 3)
 
         if (y == 1) {
             y = "rock"
@@ -16,11 +16,9 @@ function jankenpon() {
             y = "paper"
         } else if (y == 3) {
             y = "scissors"
-        } else {
-            console.log(`what the fuck is wrong with you`)
         }
 
-        console.log(x, y)
+        x = x.toLowerCase()
         
         if (x == "rock" && y == "paper" || x == "paper" && y == "scissors" || x == "scissors" && y == "rock") {
             alert(`You lost!`)
@@ -35,6 +33,41 @@ function jankenpon() {
     }
 }
 
-function roll(sides0, sides) {
-    return rollRandom(sides0, sides)
+function coin(int) {
+    let outcome = 0
+    if (int != undefined || isNaN(int) == false) {
+        let n_arr = []
+        for (let i = 0; i < int; i ++) {
+            let n = random(1, 100)
+            if (n > 50) {
+                outcome = "heads"
+            } else {
+                outcome = "tails"
+            }
+            n_arr.push(outcome)
+            console.log(outcome)
+        }
+        return n_arr
+    } else {
+        let n = random(1, 100)
+        if (n > 50) {
+            outcome = "heads"
+        } else {
+            outcome = "tails"
+        }
+        return outcome
+    }
+}
+
+function roll(int) {
+    let outcome
+    if (int != undefined) {
+        for (i = 0; i <= int; i++) {
+            outcome = random(1, 6)
+        }
+    } else {
+        outcome = random(1, 6)
+    }
+    
+    return outcome
 }
